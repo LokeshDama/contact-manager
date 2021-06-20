@@ -5,6 +5,7 @@ const apiInstance = axios.create({
 });
 
 const CONTACTS_API = 'contacts'
+const TEAM_PROFILES_API = 'https://reqres.in/api/users/'
 
 export const api = {
   fetchAllContacts: () => {
@@ -21,5 +22,8 @@ export const api = {
   },
   fetchSingleContact: (id) => {
     return apiInstance.get(`${CONTACTS_API}/${id}`)
+  },
+  fetchAllProfiles: () => {
+    return apiInstance.get(TEAM_PROFILES_API)
   },
 }

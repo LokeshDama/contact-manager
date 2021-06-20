@@ -1,13 +1,19 @@
 import { Switch, Route } from "react-router-dom";
 
-import { CONTACTS_URL } from '../constants/navigation'
+import { CONTACTS_URL, HOME_URL } from '../constants/navigation'
 import AddContactContainer from "../containers/AddContactContainer";
 import ContactDetailsContainer from "../containers/ContactDetailsContainer";
 import ContactsContainer from "../containers/ContactsContainer";
+import HomeContainer from '../containers/HomeContainer';
 
 const Routes = () => {
   return (
     <Switch>
+      <Route
+        path={HOME_URL}
+        exact
+        component={HomeContainer}
+      />
       <Route
         path={CONTACTS_URL}
         exact

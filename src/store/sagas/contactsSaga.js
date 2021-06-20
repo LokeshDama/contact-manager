@@ -3,7 +3,10 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import { api } from '../../api/contacts'
 import { CONTACTS_URL } from '../../constants/navigation'
 import { CONTACT_ACTIONS } from '../actions/actionTypes'
-import { fetchAllContactsSuccess, fetchAllContactsFailure, createContactSuccess, createContactFailure, deleteContact, deleteContactSuccess, updateContact, updateContactSuccess, fetchSingleContactSuccess } from '../actions/contacts'
+import {
+  fetchAllContactsSuccess, fetchAllContactsFailure,
+  createContactSuccess, createContactFailure, deleteContactSuccess, updateContactSuccess, fetchSingleContactSuccess
+} from '../actions/contacts'
 import history from '../../history'
 
 function* fetchAllContactsSaga() {
@@ -28,7 +31,7 @@ function* createContactSaga(action) {
 function* deleteContactSaga(action) {
   try {
     const id = action.payload;
-    const response = yield call(api.deleteContact, id)
+    yield call(api.deleteContact, id)
     yield put(deleteContactSuccess(id));
   } catch (err) {
     yield put({})
